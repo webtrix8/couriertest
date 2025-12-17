@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Page</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --primary: #2c7df0;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 10% 20%, #e8f1ff, #f5f7fb 40%),
+        radial-gradient(circle at 80% 0%, #fce7f3, #f5f7fb 30%);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      box-shadow: 0 1px 8px rgba(31, 41, 55, 0.08);
+    }
+
+    .wrapper {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    p.lead {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 8px 30px rgba(55, 65, 81, 0.08);
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .muted {
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+      box-shadow: 0 10px 25px rgba(44, 125, 240, 0.35);
+    }
+
+    button:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 18px rgba(44, 125, 240, 0.4);
+    }
+
+    button.secondary {
+      background: #f3f4f6;
+      color: var(--text);
+      box-shadow: none;
+      border: 1px solid var(--border);
+    }
+
+    .metrics {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: #eef2ff;
+      color: #4338ca;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #e0e7ff;
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: #f8fafc;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      color: var(--muted);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrapper">
+      <h1>Courier Test Page</h1>
+      <p class="lead">Use this page to try out buttons, forms, and layout elements quickly.</p>
+    </div>
+  </header>
+  <main class="wrapper">
+    <div class="grid">
+      <section class="card">
+        <h2>Quick Interactions</h2>
+        <p class="muted">Tap the primary action a few times to make sure events fire.</p>
+        <div class="metrics">
+          <button id="clicker">Tap to increment</button>
+          <span class="pill">Clicks <span id="click-count">0</span></span>
+          <span class="pill">Last action <span id="last-action">—</span></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Form Controls</h2>
+        <p class="muted">Submit a sample form to check validation and styling.</p>
+        <form id="sample-form">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Ada Lovelace" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="ada@example.com" required />
+          </div>
+          <div>
+            <label for="purpose">Purpose</label>
+            <select id="purpose" name="purpose">
+              <option>UI check</option>
+              <option>Accessibility</option>
+              <option>Sanity test</option>
+            </select>
+          </div>
+          <div>
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" placeholder="Share what you are testing"></textarea>
+          </div>
+          <div class="metrics">
+            <button type="submit">Submit</button>
+            <span class="pill" id="submit-status">Waiting for input</span>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Sample Data Table</h2>
+        <p class="muted">Reference a predictable set of rows to verify layout.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Status</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary CTA tap</td>
+              <td>Ready</td>
+              <td>QA</td>
+            </tr>
+            <tr>
+              <td>Form submission</td>
+              <td>In Progress</td>
+              <td>Team</td>
+            </tr>
+            <tr>
+              <td>Responsive resize</td>
+              <td>Planned</td>
+              <td>Dev</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Notes &amp; Tips</h2>
+        <p class="muted">A quick checklist to keep manual tests consistent.</p>
+        <ul>
+          <li>Resize the window to confirm the grid collapses gracefully.</li>
+          <li>Try submitting the form without filling required fields.</li>
+          <li>Use keyboard navigation to move between inputs.</li>
+          <li>Toggle reduced motion in your OS to verify focus states still work.</li>
+        </ul>
+        <div class="metrics">
+          <button class="secondary" id="reset">Reset widgets</button>
+          <span class="pill" id="reset-status">Nothing to reset yet</span>
+        </div>
+      </section>
+    </div>
+
+    <p class="footer">Built for quick smoke testing and UI verification.</p>
+  </main>
+
+  <script>
+    const clicker = document.getElementById('clicker');
+    const clickCount = document.getElementById('click-count');
+    const lastAction = document.getElementById('last-action');
+    const resetButton = document.getElementById('reset');
+    const resetStatus = document.getElementById('reset-status');
+    const form = document.getElementById('sample-form');
+    const submitStatus = document.getElementById('submit-status');
+
+    let clicks = 0;
+
+    clicker.addEventListener('click', () => {
+      clicks += 1;
+      clickCount.textContent = clicks;
+      lastAction.textContent = new Date().toLocaleTimeString();
+      resetStatus.textContent = 'Widgets active';
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const summary = `${data.get('name')} • ${data.get('email')} • ${data.get('purpose')}`;
+      submitStatus.textContent = `Submitted: ${summary}`;
+      resetStatus.textContent = 'Form submitted';
+    });
+
+    resetButton.addEventListener('click', () => {
+      clicks = 0;
+      clickCount.textContent = '0';
+      lastAction.textContent = '—';
+      form.reset();
+      submitStatus.textContent = 'Waiting for input';
+      resetStatus.textContent = 'Reset to defaults';
+    });
+  </script>
+</body>
+</html>
