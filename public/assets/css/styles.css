@@ -1,0 +1,59 @@
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f7f7f7;
+}
+.hero {
+    background: linear-gradient(120deg, #c8102e, #e2231a);
+    color: #fff;
+    padding: 4rem 0;
+}
+.hero h1 { font-weight: 800; }
+.hero .tracking-box {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.1);
+}
+.status-badge {
+    border-radius: 50px;
+}
+.timeline {
+    position: relative;
+    padding-left: 1.5rem;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #e1e1e1;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    background: #c8102e;
+    border-radius: 50%;
+}
+.card-kpi {
+    border-left: 6px solid #c8102e;
+}
+.admin-sidebar {
+    min-height: 100vh;
+}
+.table-responsive { background: #fff; }
+
+.label-card {
+    max-width: 420px;
+    border: 2px dashed #c8102e;
+}
